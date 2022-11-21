@@ -1,12 +1,7 @@
 # .gitignore
 
-<<<<<<< HEAD
-# Created by https://www.toptal.com/developers/gitignore/api/windows,macos,linux,java,visualstudiocode,eclipse
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,linux,java,visualstudiocode,eclipse
-=======
 # Created by https://www.toptal.com/developers/gitignore/api/windows,macos,linux,gradle,java,visualstudiocode,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,linux,gradle,java,visualstudiocode,eclipse
->>>>>>> 4fbbb467ba070c3dbfd8b62d1a66182de92f8eb4
 
 ### Eclipse ###
 .metadata
@@ -193,9 +188,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-<<<<<<< HEAD
-# End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,java,visualstudiocode,eclipse
-=======
 ### Gradle ###
 .gradle
 **/build/
@@ -224,4 +216,3 @@ gradle-app.setting
 *.hprof
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,gradle,java,visualstudiocode,eclipse
->>>>>>> 4fbbb467ba070c3dbfd8b62d1a66182de92f8eb4
