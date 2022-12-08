@@ -29,6 +29,7 @@ console.log(f1());
 // 애로우(arrow ) 함수 : 초간단 함수 정의 문법
 // 1) function 키워드를 제거한다.
 // 2) 대신 파라미터 블록과 코드 블록 사이에 화살표를 추가한다.
+// 3) 다른 언어에서는 람다(lambda)라고 부른다.
 var f2 = () => {
 	return "안녕";
 };
@@ -41,7 +42,28 @@ console.log(f2());
 var f3 = () => "안녕";
 console.log(f3());
 
+// 익명 함수 정의 후 바로 호출하는 방법
+console.log((function() {
+	return "안녕";
+})());
+
+// 애로우 함수를 정의하는 즉시 호출하기
 console.log((() => "안녕")());
+
+console.log(((a, b) => a + b)(111, 222));
+console.log("---------------------");
+
+((name) => console.log(name + "님 반가워요!"))("강감찬");
+
+(function(name) { 
+	console.log(name + "님 반가워요!")
+})("강감찬");
+
+var x = function(name) { 
+	console.log(name + "님 반가워요!")
+};
+x("강감찬");
+
 </script>
 
 </body>

@@ -9,14 +9,9 @@
 
 <p>이번 달 이용 금액은 <span id="bill"></span> 원입니다.</p>
 
-<script>
-// 서버에서 이용 금액 데이터를 가져와서 화면에 출력한다.
-var xhr = new XMLHttpRequest();
-xhr.onload = function() {
-  document.getElementById("bill").innerHTML = xhr.responseText;
-};
-xhr.open("GET", "/javascript/ex01/exam05_x", true);
-xhr.send();
-</script>
+<script src="http://localhost:3000/exam05_x"></script>
+  <script>
+    document.getElementById("bill").innerHTML = rate;
+  </script>
 </body>
 </html>
