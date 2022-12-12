@@ -15,55 +15,84 @@ console.log(100 * 200);
 console.log(100 / 200);
 console.log(100 % 200);
 console.log(2 ** 4);
-console.log("----------------------------");
+console.log("------------------------");
 
+// 후위 연산자: ++, --
 let a = 100;
-a--;
+a++; // a = a + 1;
+console.log(a)
+
+a = 100;
+a--; // a = a - 1;
 console.log(a);
 
 a = 3.14;
 a++;
 console.log(a.toFixed(2));
-console.log("----------------------------");
+console.log("------------------------");
 
+// 전위 연산자: ++, --
 a = 100;
 ++a;
 console.log(a);
-console.log("----------------------------");
+
+a = 100;
+--a;
+console.log(a);
+console.log("------------------------");
 
 let x = 100;
 let y = 100;
 
-console.log(x++);
+console.log(x++); 
+// console.log(x);
+// x = x + 1;
+
 console.log(++y);
-console.log("----------------------------");
+// y = y + 1;
+// console.log(y)
+console.log("------------------------");
 
 a = 100;
 x = a++ + a++ + a++;
+// x = a;
+// a = a + 1;
+// x = x + a;
+// a = a + 1;
+// x = x + a;
+// a = a + 1;
+//
 // x = 100 + 101 + 102;
 console.log(a, x);
-console.log("----------------------------");
+console.log("------------------------");
 
 a = 100;
 x = ++a + ++a + ++a;
-// x = 101 + 102 + 103
+// x = 101 + 102 + 103;
 console.log(a, x);
-console.log("----------------------------");
+console.log("------------------------");
 
 x = 100;
-x = ++x;
-console.log(x);
+x = ++x; 
+// x = x + 1;
+// x = x;
+console.log(x); // 101
 
 y = 100;
 y = y++;
+// temp = y;
+// y = y + 1;
+// y = temp;
 console.log(y);
-console.log("----------------------------");
+console.log("------------------------");
 
 // ++, -- 연산자는 *, /, % 보다 우선한다.
 a = 3;
 x = a++ + a++ * a++;
-// 3 + 4 * 5 = 23
-console.log(x, a);
+// x = 3 + 4 * 5;
+// x = 3 + 20;
+// x = 23;
+console.log(x, a); // 23
 
 </script>
 </body>

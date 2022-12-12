@@ -1,0 +1,29 @@
+.false button {
+  position: absolute;
+  right: 0;
+  top: 22px;
+
+  width:30px;
+  height:30px;
+  font-size:15px;
+  font-weight:bold;
+  margin-right:10px;
+  background-color:white;
+  border:none;
+  color:red;
+}
+
+.true input {
+  position: absolute;
+  left: 0;
+  top: 22px;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left:10px;
+  font-size: 25px;
+  border:0.5px solid lightgray;
+
+  background:url('../image/check.png') center no-repeat;
+}

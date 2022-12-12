@@ -9,24 +9,17 @@
 <script>
 "use strict"
 // arrow 함수이든 일반 함수이든 결국 같은 함수이다.
-
 //
-
-// var b = document.getElementById("btn1");
-// b.addEventListener('click', f);
-
-// function f() {
-// 	console.log("okokok");
-// }
-
-// var b = document.getElementById("btn1");
-// b.addEventListener('click', () => {
-// 	console.log("okokok");
-// });
-
-// forEach(배열 줘!) 배열 항목을 반복할 때 마다 호출할 함수 줘!
-
-let arr = [100, "홍길동", 3.14, "임꺽정", true];
+//
+// [Quiz 1]
+// - forEach() 함수 정의를 보고,
+//   다음과 같이 실행 결과가 출력되도록 나머지 코드를 완성하시오.
+// - 출력결과: 
+// 0: 100
+// 1: 홍길동
+// 2: 3.14
+// 3: 임꺽정
+// 4: true
 
 function forEach(a, cb) {
 	for (let i = 0; i < a.length; i++) {
@@ -34,36 +27,26 @@ function forEach(a, cb) {
 	}
 }
 
+let arr = [100, "홍길동", 3.14, "임꺽정", true];
 function f(index, value) {
-	console.log(index + ":" + value);
+	console.log(index + ": " + value);
 }
-
 forEach(arr, f);
-
-// forEach(arr, (p1, p2) => {
-// 	console.log(p1 + ":" + p2);
-// });
-
-console.log("---------------------------");
+console.log("------------------------");
 
 forEach(
-	[100, "홍길동", 3.14, "임꺽정", true],
-	(index, value) => console.log(index + ":" + value)
+	[100, "홍길동", 3.14, "임꺽정", true], 
+	function(index, value) {
+		console.log(index + ": " + value);
+	}
 );
+console.log("------------------------");
 
-// console.log(Math.abs("okok"));
-
-// forEach(arr, f);
-
-// function f(index, value) {
-// 	console.log(index + ":" + value);
-// }
-
-// forEach([100, "홍길동", 3.14, "임꺽정", true], 
-// 	(index, value) => 
-// 		console.log(index + ":" + value));
-
-console.log("---------------------------");
+forEach(
+	[100, "홍길동", 3.14, "임꺽정", true], 
+	(index, value) => console.log(index + ": " + value)
+);
+console.log("------------------------");
 
 </script>
 
