@@ -11,7 +11,6 @@
 
 <script>
 "use strict"
-
 // XMLHttpRequest()
 // => 동기/비동기 HTTP 요청을 할 때 사용한다.
 // => 전체 페이지를 갱신하지 않고 페이지의 일부만 갱신하는 용도로 쓴다.
@@ -36,7 +35,7 @@ document.querySelector("#btn1").onclick = () => {
     // => 동기 방식으로 연결되었을 경우 서버에서 응답할 때까지 리턴하지 않는다.
     xhr.send();
     
-    //4) 서버가 응답한 콘텐트를 꺼낸다.
+    //4) 서버가 응답한 콘텐트(payload=message-body)를 꺼낸다.
     ta.value = xhr.responseText;
 };
 
