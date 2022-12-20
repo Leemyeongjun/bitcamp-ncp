@@ -15,14 +15,10 @@
 </table>
 <button id="btn1">데이터 가져오기!</button>
 
-<script src="jquery-02.js"></script>
-
-<script>
-</script>
-
+<script src="jquery-03.js"></script>
 <script>
 "use strict"
-     
+
 var tbody = $("tbody")[0];
 
 document.querySelector("#btn1").onclick = () => {
@@ -35,15 +31,15 @@ document.querySelector("#btn1").onclick = () => {
 
                 var arr = JSON.parse(xhr.responseText);
                 console.log(arr);
-
+                
                 for (var b of arr) {
                 	var tr = $("<tr>");
-
+                	
                 	tr.innerHTML = "<td>" + b.no + "</td>" + 
                 	   "<td>" + b.title + "</td>" + 
                 	   "<td>" + b.writer + "</td>" +
                 	   "<td>" + b.viewCnt + "</td>";
-
+                	
                 	tbody.append(tr);
                 }
             }

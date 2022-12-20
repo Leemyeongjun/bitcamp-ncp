@@ -16,9 +16,10 @@
 <button id="btn1">데이터 가져오기!</button>
 
 <script src="jquery-01.js"></script>
+
 <script>
 "use strict"
-     
+
 var tbody = $("tbody")[0];
 
 document.querySelector("#btn1").onclick = () => {
@@ -31,15 +32,15 @@ document.querySelector("#btn1").onclick = () => {
 
                 var arr = JSON.parse(xhr.responseText);
                 console.log(arr);
-
+                
                 for (var b of arr) {
                 	var tr = document.createElement("tr");
-
+                	
                 	tr.innerHTML = "<td>" + b.no + "</td>" + 
                 	   "<td>" + b.title + "</td>" + 
                 	   "<td>" + b.writer + "</td>" +
                 	   "<td>" + b.viewCnt + "</td>";
-
+                	
                 	tbody.appendChild(tr);
                 }
             }
