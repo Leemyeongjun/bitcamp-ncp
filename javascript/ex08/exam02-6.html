@@ -5,29 +5,28 @@
 <title>비동기작업</title>
 </head>
 <body>
-<h1>Promise - 예외처리</h1>
+<h1>Promise - 익명 함수 활용하기</h1>
 <script>
 const promise = new Promise((resolve, reject) => {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
       console.log(xhr.responseText);
-      throw '오류 발생!';
+      
+      resolve();
+      //reject();
     }
   };
   xhr.open("GET", "http://localhost:3000/hello", true); 
   xhr.send();
 });
-promise.then(() => console.log("fulfilled!"), 
-             () => console.log("rejected!"));
-promise.catch(() => console.log("catched!"));
 
-console.log("작업 함수 연결 완료!");
+promise.then(function() {console.log("fulfilled!")}, function() {console.log("rejected!")});
 
-// executor에서 비동기 작업을 실행하는 중에 오류가 발생했을 때,
-// 오류를 제어할 수 없다.
-// 해결책?
-// 다음 예제!
+console.log("끝!");
+
+
+
 </script>
 </body>
 </html>

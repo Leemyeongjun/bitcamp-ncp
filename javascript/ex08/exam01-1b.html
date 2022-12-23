@@ -19,6 +19,8 @@
 // - 어떤 이유로 작업 수행을 거절(reject)했다는 통지를 받으면, 
 //   reject 상태일 때 호출하기로 약속한 함수를 실행한다.
 //
+
+// executor의 정의를 파라미터에서 수행
 const promise = new Promise((resolve, reject) => {
   // 시간이 오래 걸리는 동기 작업 수행
   var xhr = new XMLHttpRequest();
@@ -28,7 +30,7 @@ const promise = new Promise((resolve, reject) => {
 });
 // Promise 생성자의 executor 호출이 끝날 때까지 리턴하지 않는다.
 
-console.log("1111");
+console.log("끝!");
 
 // 결론!
 // - Promise 생성자에 전달한 executor의 호출이 끝날 때까지 Promise 객체를 리턴하지 않는다.

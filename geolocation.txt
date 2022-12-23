@@ -1,0 +1,16 @@
+function findLocation() {
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      var userLat = position.coords.latitude;
+      var userLng = position.coords.longitude;
+  
+      console.log(userLat, userLng);
+    });
+
+  } else {
+    loc.innerHTML = "이 문장은 사용자의 웹 브라우저가 Geolocation API를 지원하지 않을 때 나타납니다!";
+  }
+}
+
+findLocation();
