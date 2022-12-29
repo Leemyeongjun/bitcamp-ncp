@@ -1,7 +1,7 @@
 package com.eomcs.lang.ex04;
 
-//# 형변환 - 명시적 형변환이 불가능한 경우, 특별한 메서드를 사용하면 가능하다. 
-// 
+//# 형변환 - 명시적 형변환이 불가능한 경우, 특별한 메서드를 사용하면 가능하다.
+//
 public class Exam0951 {
   public static void main(String[] args) {
 
@@ -9,7 +9,7 @@ public class Exam0951 {
     short s = Short.valueOf("32767");
     int i1 = Integer.valueOf("2122223333"); // 문자열 ==> int
     int i2 = Integer.parseInt("2122223333"); // 문자열 ==> int
-    long l = Long.valueOf("9221111222233334444"); 
+    long l = Long.valueOf("9221111222233334444");
     float f1 = Float.valueOf("3.14f");
     float f2 = Float.parseFloat("3.14f");
     double d = Double.valueOf("9876.54321");
