@@ -23,7 +23,7 @@ public class Exam0110 {
         age
         >=
         19
-        ) 
+        )
       System
       .
       out.
