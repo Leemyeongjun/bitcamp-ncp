@@ -3,6 +3,7 @@ package bitcamp.myapp;
 import java.util.Scanner;
 
 public class Prompt {
+  //키보드에서 입력을 받는 도구 준비
   static Scanner scanner = new Scanner(System.in);
 
   static String inputString(String title) {

@@ -18,8 +18,8 @@ eclipse {
         name = "myapp"
     }
 
-    // => eclipse IDE 설정하기
-    jdt {  
+    // => ecilpse IDE 설정하기
+    jdt {
       sourceCompatibility = 17
       targetCompatibility = 17
       javaRuntimeName = "JavaSE-17"
