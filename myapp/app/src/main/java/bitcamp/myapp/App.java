@@ -20,10 +20,14 @@ public class App {
     // 기업 위탁 교육생 목록을 저장할 메모리를 준비한다.
     MemberHandler companyMembrHandler = new MemberHandler("위탁교육생");
 
+    // 게시글
+    BoardHandler basicBoardHandler = new BoardHandler("게시글");
+
     while (true) {
       System.out.println("1. 일반학생관리");
       System.out.println("2. 국비지원학생관리");
       System.out.println("3. 위탁교육생관리");
+      System.out.println("4. 게시글관리");
       System.out.println("9. 종료");
       int menuNo = Prompt.inputInt("메뉴> ");
 
@@ -33,6 +37,8 @@ public class App {
         supportedMembrHandler.service();
       } else if (menuNo == 3) {
         companyMembrHandler.service();
+      } else if (menuNo == 4) {
+        basicBoardHandler.service();
       } else if (menuNo == 9) {
         break;
       } else {
