@@ -1,4 +1,4 @@
-package bitcamp.bootapp;
+package bitcamp.bootapp.vo;
 
 public class Board {
   private int no;
@@ -44,4 +44,6 @@ public class Board {
   public void setViewCount(int viewCount) {
     this.viewCount = viewCount;
   }
+
+
 }
