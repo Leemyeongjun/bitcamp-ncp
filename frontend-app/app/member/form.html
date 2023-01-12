@@ -69,22 +69,26 @@ document.querySelector('#add-btn').onclick = (e) => {
   var gender = document.querySelector('#f-gender-w').checked ? 'W' : 'M';
   var level = document.querySelector('#f-level').value;
 
-  // console.log(`name=${name}&tel=${tel}&postNo=${postNo}&basicAddress=${basicAddress}&detailAddress=${detailAddress}&working=${working}&gender=${gender}&level=${level}`);
+  // console.log(`name=${name}&tel=${tel}&postNo=${postNo}&basicAddress=${basicAddress}&detailAddress=${detailAddress}` +
+  //   `&working=${working}&gender=${gender}&level=${level}`);
+
   fetch('http://localhost:8080/members', {
     method: 'POST',
     headers: {
       'Content-type': 'application/x-www-form-urlencoded'
     },
-    body: `name=${name}&tel=${tel}&postNo=${postNo}&basicAddress=${basicAddress}&detailAddress=${detailAddress}&working=${working}&gender=${gender}&level=${level}`
+    body: `name=${name}&tel=${tel}&postNo=${postNo}&basicAddress=${basicAddress}&detailAddress=${detailAddress}` +
+      `&working=${working}&gender=${gender}&level=${level}`
   })
   .then((response) => {return response.json();})
   .then((obj) => {
     location.href = "list.html";
   })
   .catch((err) => {
-    window.alert("서버 요청 오류!");
+    alert("서버 요청 오류!");
     console.log(err);
   });
+
 };
 
 document.querySelector('#cancel-btn').onclick = (e) => {

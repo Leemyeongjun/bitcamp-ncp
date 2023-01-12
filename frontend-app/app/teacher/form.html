@@ -17,35 +17,36 @@
     </tr>
     <tr>
       <th>전화</th>
-      <td><input type="text" name="tel" id="f-tel"></td>
+      <td><input type="tel" name="tel" id="f-tel"></td>
     </tr>
     <tr>
       <th>이메일</th>
-      <td><input type="text" name="email" id="f-email"></td>
+      <td><input type="email" name="email" id="f-email"></td>
     </tr>
     <tr>
-      <th>최종학력</th>
+      <th>학위</th>
       <td>
-        <select name="education" id="f-education">
-          <option value="0">학사</option>
-          <option value="1">석사</option>
-          <option value="2">박사</option>
+        <select name="degree" id="f-degree">
+          <option value="1">고졸</option>
+          <option value="2">전문학사</option>
+          <option value="3" selected>학사</option>
+          <option value="4">석사</option>
+          <option value="5">박사</option>
+          <option value="0">기타</option>
         </select>
       </td>
     </tr>
     <tr>
-      <th>대학교</th>
-      <td><input type="text" name="university" id="f-university"></td>
+      <th>학교</th>
+      <td><input type="text" name="school" id="f-school"></td>
     </tr>
     <tr>
       <th>전공</th>
       <td><input type="text" name="major" id="f-major"></td>
     </tr>
     <tr>
-      <th>강사료</th>
-      <td>
-        <input type="text" name="tuition" id="f-tuition">
-      </td>
+      <th>강의료</th>
+      <td><input type="number" name="wage" id="f-wage">원/시간</td>
     </tr>
   </tbody>
 </table>
@@ -57,26 +58,29 @@
 document.querySelector('#add-btn').onclick = (e) => {
   var name = encodeURIComponent(document.querySelector('#f-name').value);
   var tel = document.querySelector('#f-tel').value;
-  var email = encodeURIComponent(document.querySelector('#f-email').value);
-  var education = encodeURIComponent(document.querySelector('#f-education').value);
-  var university = encodeURIComponent(document.querySelector('#f-university').value);
-  var major = encodeURIComponent(document.querySelector('#f-major').value);
-  var tuition = document.querySelector('#f-tuition').value;
+  var email = document.querySelector('#f-email').value;
+  var degree = document.querySelector('#f-degree').value;
+  var school = encodeURIComponent(document.querySelector('#f-school').value);
+  var major = encodeURIComponent(document.querySelector('#f-major').value);;
+  var wage = document.querySelector('#f-wage').value;
 
-  // console.log(`name=${name}&tel=${tel}&postNo=${postNo}&basicAddress=${basicAddress}&detailAddress=${detailAddress}&working=${working}&gender=${gender}&level=${level}`);
+  // console.log(`name=${name}&tel=${tel}&email=${email}&degree=${degree}&school=${school}` +
+  //   `&major=${major}&wage=${wage}`);
+
   fetch('http://localhost:8080/teachers', {
     method: 'POST',
     headers: {
       'Content-type': 'application/x-www-form-urlencoded'
     },
-    body: `name=${name}&tel=${tel}&email=${email}&education=${education}&university=${university}&major=${major}&tuition=${tuition}`
+    body: `name=${name}&tel=${tel}&email=${email}&degree=${degree}&school=${school}` +
+      `&major=${major}&wage=${wage}`
   })
   .then((response) => {return response.json();})
   .then((obj) => {
     location.href = "list.html";
   })
   .catch((err) => {
-    window.alert("서버 요청 오류!");
+    alert("서버 요청 오류!");
     console.log(err);
   });
 };

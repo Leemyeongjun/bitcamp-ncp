@@ -4,11 +4,11 @@ public class Teacher {
   private int no;
   private String name;
   private String tel;
-  private String email;          // 이메일
-  private String education;      // 최종학력
-  private String university;     // 대학
-  private String major;          // 전공
-  private  int tuition;          // 수강료
+  private String email;
+  private int degree;
+  private String school;
+  private String major;
+  private int wage;
   private String createdDate;
 
   public int getNo() {
@@ -35,17 +35,17 @@ public class Teacher {
   public void setEmail(String email) {
     this.email = email;
   }
-  public String getEducation() {
-    return education;
+  public int getDegree() {
+    return degree;
   }
-  public void setEducation(String education) {
-    this.education = education;
+  public void setDegree(int degree) {
+    this.degree = degree;
   }
-  public String getUniversity() {
-    return university;
+  public String getSchool() {
+    return school;
   }
-  public void setUniversity(String university) {
-    this.university = university;
+  public void setSchool(String school) {
+    this.school = school;
   }
   public String getMajor() {
     return major;
@@ -53,11 +53,11 @@ public class Teacher {
   public void setMajor(String major) {
     this.major = major;
   }
-  public int getTuition() {
-    return tuition;
+  public int getWage() {
+    return wage;
   }
-  public void setTuition(int tuition) {
-    this.tuition = tuition;
+  public void setWage(int wage) {
+    this.wage = wage;
   }
   public String getCreatedDate() {
     return createdDate;
@@ -65,4 +65,6 @@ public class Teacher {
   public void setCreatedDate(String createdDate) {
     this.createdDate = createdDate;
   }
+
+
 }

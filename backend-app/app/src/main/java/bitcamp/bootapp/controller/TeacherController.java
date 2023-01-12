@@ -20,14 +20,12 @@ public class TeacherController {
   TeacherDao teacherDao = new TeacherDao();
 
   @PostMapping("/teachers")
-  public Object addTeacher(
-      Teacher teacher
-      ) {
+  public Object addTeacher(Teacher teacher) {
 
     teacher.setCreatedDate(new Date(System.currentTimeMillis()).toString());
+
     this.teacherDao.insert(teacher);
 
-    // 응답 결과를 담을 맵 객체 준비
     Map<String,Object> contentMap = new HashMap<>();
     contentMap.put("status", "success");
 
@@ -47,36 +45,34 @@ public class TeacherController {
     return contentMap;
   }
 
+
   @GetMapping("/teachers/{no}")
-  public Object getTeacher(Teacher teacher) {
+  public Object getTeacher(@PathVariable int no) {
 
-    Teacher t = this.teacherDao.findByNo(teacher.getNo());
+    Teacher b = this.teacherDao.findByNo(no);
 
-    // 응답 결과를 담을 맵 객체 준비
     Map<String,Object> contentMap = new HashMap<>();
 
-    if (t == null) {
+    if (b == null) {
       contentMap.put("status", "failure");
-      contentMap.put("data", "해당 번호의 회원이 없습니다.");
+      contentMap.put("data", "강사가 없습니다.");
     } else {
       contentMap.put("status", "success");
-      contentMap.put("data", t);
+      contentMap.put("data", b);
     }
 
     return contentMap;
   }
 
   @PutMapping("/teachers/{no}")
-  public Object updateTeacher(
-
-      Teacher teacher) {
+  public Object updateTeacher(Teacher teacher) {
 
     Map<String,Object> contentMap = new HashMap<>();
 
     Teacher old = this.teacherDao.findByNo(teacher.getNo());
     if (old == null) {
       contentMap.put("status", "failure");
-      contentMap.put("data", "회원이 없습니다.");
+      contentMap.put("data", "강사가 없습니다.");
       return contentMap;
     }
 
@@ -89,21 +85,19 @@ public class TeacherController {
     return contentMap;
   }
 
-  @DeleteMapping("/teachers/{teacherNo}")
-  public Object deleteTeacher(
+  @DeleteMapping("/teachers/{no}")
+  public Object deleteTeacher(@PathVariable int no) {
 
-      @PathVariable int teacherNo) {
+    Teacher m = this.teacherDao.findByNo(no);
 
-    Teacher t = this.teacherDao.findByNo(teacherNo);
-
-    // 응답 결과를 담을 맵 객체 준비
     Map<String,Object> contentMap = new HashMap<>();
 
-    if (t == null) {
+    if (m == null) {
       contentMap.put("status", "failure");
-      contentMap.put("data", "게시글이 없거나 암호가 맞지 않습니다.");
+      contentMap.put("data", "강사가 없습니다.");
+
     } else {
-      this.teacherDao.delete(t);
+      this.teacherDao.delete(m);
       contentMap.put("status", "success");
     }
 

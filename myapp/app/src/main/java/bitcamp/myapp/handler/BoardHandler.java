@@ -8,7 +8,6 @@ import bitcamp.util.Prompt;
 public class BoardHandler {
 
   private BoardDao boardDao = new BoardDao();
-
   private String title;
 
   // 인스턴스를 만들 때 프롬프트 제목을 반드시 입력하도록 강제한다.
@@ -28,7 +27,7 @@ public class BoardHandler {
   }
 
   private void printBoards() {
-    System.out.println("번호\t제목\t작성일\t\t조회수");
+    System.out.println("번호\t제목\t작성일\t조회수");
 
     Board[] boards = this.boardDao.findAll();
 
@@ -51,8 +50,8 @@ public class BoardHandler {
     System.out.printf("    제목: %s\n", b.getTitle());
     System.out.printf("    내용: %s\n", b.getContent());
     System.out.printf("  등록일: %s\n", b.getCreatedDate());
-    b.setViewCount(b.getViewCount() + 1);
     System.out.printf("  조회수: %d\n", b.getViewCount());
+    b.setViewCount(b.getViewCount() + 1);
   }
 
   private void modifyBoard() {
@@ -110,20 +109,16 @@ public class BoardHandler {
       return;
     }
 
-    boardDao.delete(b);
+    this.boardDao.delete(b);
 
     System.out.println("삭제했습니다.");
 
   }
 
   private void searchBoard() {
-
-    Board[] boards = boardDao.findAll();
-
+    Board[] boards = this.boardDao.findAll();
     String keyword = Prompt.inputString("검색어? ");
-
     System.out.println("번호\t제목\t작성일\t조회수");
-
     for (Board b : boards) {
       if (b.getTitle().indexOf(keyword) != -1 ||
           b.getContent().indexOf(keyword) != -1) {

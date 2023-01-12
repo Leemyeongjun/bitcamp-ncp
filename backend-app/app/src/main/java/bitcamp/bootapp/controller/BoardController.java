@@ -117,6 +117,7 @@ public class BoardController {
     if (b == null || !b.getPassword().equals(password)) {
       contentMap.put("status", "failure");
       contentMap.put("data", "게시글이 없거나 암호가 맞지 않습니다.");
+
     } else {
       this.boardDao.delete(b);
       contentMap.put("status", "success");

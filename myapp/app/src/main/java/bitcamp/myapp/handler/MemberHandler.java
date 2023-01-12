@@ -8,10 +8,8 @@ import bitcamp.util.Prompt;
 public class MemberHandler {
 
   private MemberDao memberDao = new MemberDao();
+  private String title;
 
-  String title;
-
-  // 인스턴스를 만들 때 프롬프트 제목을 반드시 입력하도록 강제한다.
   public MemberHandler(String title) {
     this.title = title;
   }
@@ -33,9 +31,10 @@ public class MemberHandler {
   }
 
   private void printMembers() {
-    System.out.println("번호\t이름\t전화\t재직\t전공");
 
     Member[] members = this.memberDao.findAll();
+
+    System.out.println("번호\t이름\t전화\t재직\t전공");
 
     for (Member m : members) {
       System.out.printf("%d\t%s\t%s\t%s\t%s\n",
@@ -57,7 +56,7 @@ public class MemberHandler {
 
     System.out.printf("    이름: %s\n", m.getName());
     System.out.printf("    전화: %s\n", m.getTel());
-    System.out.printf("우편번호: %s\n", m.getPostNo());
+    System.out.printf("우편번호: %s\n", m.getNo());
     System.out.printf("기본주소: %s\n", m.getBasicAddress());
     System.out.printf("상세주소: %s\n", m.getDetailAddress());
     System.out.printf("재직여부: %s\n", m.isWorking() ? "예" : "아니오");
@@ -131,14 +130,15 @@ public class MemberHandler {
       return;
     }
 
-    this.memberDao.delete(m);
+    memberDao.delete(m);
 
     System.out.println("삭제했습니다.");
 
   }
 
   private void searchMember() {
-    Member[] members = memberDao.findAll();
+
+    Member[] members = this.memberDao.findAll();
 
     String name = Prompt.inputString("이름? ");
 

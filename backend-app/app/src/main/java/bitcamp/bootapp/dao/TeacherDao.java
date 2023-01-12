@@ -39,12 +39,19 @@ public class TeacherDao {
     this.teachers[--this.count] = null; // 레퍼런스 카운트를 줄인다.
   }
 
-  private int indexOf(Teacher t) {
+  private int indexOf(Teacher teacher) {
     for (int i = 0; i < this.count; i++) {
-      if (this.teachers[i].getNo() == t.getNo()) {
+      if (this.teachers[i].getNo() == teacher.getNo()) {
         return i;
       }
     }
     return -1;
   }
 }
+
+
+
+
+
+
+
