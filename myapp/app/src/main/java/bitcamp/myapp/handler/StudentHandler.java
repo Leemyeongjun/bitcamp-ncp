@@ -1,21 +1,21 @@
 package bitcamp.myapp.handler;
 
 import java.sql.Date;
-import bitcamp.myapp.dao.MemberDao;
-import bitcamp.myapp.vo.Member;
+import bitcamp.myapp.dao.StudentDao;
+import bitcamp.myapp.vo.Student;
 import bitcamp.util.Prompt;
 
-public class MemberHandler {
+public class StudentHandler {
 
-  private MemberDao memberDao = new MemberDao();
+  private StudentDao memberDao = new StudentDao();
   private String title;
 
-  public MemberHandler(String title) {
+  public StudentHandler(String title) {
     this.title = title;
   }
 
   private void inputMember() {
-    Member m = new Member();
+    Student m = new Student();
     m.setNo(Prompt.inputInt("번호? "));
     m.setName(Prompt.inputString("이름? "));
     m.setTel(Prompt.inputString("전화? "));
@@ -32,11 +32,14 @@ public class MemberHandler {
 
   private void printMembers() {
 
-    Member[] members = this.memberDao.findAll();
+    Object[] members = this.memberDao.findAll();
 
     System.out.println("번호\t이름\t전화\t재직\t전공");
 
-    for (Member m : members) {
+    for (Object obj : members) {
+
+      Student m = (Student) obj;
+
       System.out.printf("%d\t%s\t%s\t%s\t%s\n",
           m.getNo(), m.getName(), m.getTel(),
           m.isWorking() ? "예" : "아니오",
@@ -47,7 +50,7 @@ public class MemberHandler {
   private void printMember() {
     int memberNo = Prompt.inputInt("회원번호? ");
 
-    Member m = this.memberDao.findByNo(memberNo);
+    Student m = this.memberDao.findByNo(memberNo);
 
     if (m == null) {
       System.out.println("해당 번호의 회원이 없습니다.");
@@ -78,7 +81,7 @@ public class MemberHandler {
   private void modifyMember() {
     int memberNo = Prompt.inputInt("회원번호? ");
 
-    Member old = this.memberDao.findByNo(memberNo);
+    Student old = this.memberDao.findByNo(memberNo);
 
     if (old == null) {
       System.out.println("해당 번호의 회원이 없습니다.");
@@ -86,7 +89,7 @@ public class MemberHandler {
     }
 
     // 변경할 데이터를 저장할 인스턴스 준비
-    Member m = new Member();
+    Student m = new Student();
     m.setNo(old.getNo());
     m.setCreatedDate(old.getCreatedDate());
     m.setName(Prompt.inputString(String.format("이름(%s)? ", old.getName())));
@@ -117,7 +120,7 @@ public class MemberHandler {
   private void deleteMember() {
     int memberNo = Prompt.inputInt("회원번호? ");
 
-    Member m = this.memberDao.findByNo(memberNo);
+    Student m = this.memberDao.findByNo(memberNo);
 
     if (m == null) {
       System.out.println("해당 번호의 회원이 없습니다.");
@@ -138,13 +141,16 @@ public class MemberHandler {
 
   private void searchMember() {
 
-    Member[] members = this.memberDao.findAll();
+    Object[] members = this.memberDao.findAll();
 
     String name = Prompt.inputString("이름? ");
 
     System.out.println("번호\t이름\t전화\t재직\t전공");
 
-    for (Member m : members) {
+    for (Object obj : members) {
+
+      Student m = (Student) obj;
+
       if (m.getName().equalsIgnoreCase(name)) {
         System.out.printf("%d\t%s\t%s\t%s\t%s\n",
             m.getNo(), m.getName(), m.getTel(),
