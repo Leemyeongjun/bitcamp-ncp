@@ -7,7 +7,7 @@ public class Exam0211 {
     // Wrapper 클래스의 가장 큰 목적!
     // => primitive 값을 포함하여 모든 값을 쉽게 주고 받기 위함이다.
 
-    // wapper 클래스가 없다면,
+    // wrapper 클래스가 없다면,
     // 다음과 같이 각 타입에 대한 메서드가 따로 있어야 한다.
     long l = 100L;
     double d = 3.14;

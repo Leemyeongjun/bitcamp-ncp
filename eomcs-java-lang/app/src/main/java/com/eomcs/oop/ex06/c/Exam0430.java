@@ -82,5 +82,12 @@ public class Exam0430 {
     A4 obj4 = new A4();
     obj4.print();
     System.out.println("--------------------------------");
+
+    A3 obj5 = new A4();
+    obj5.print();
+    // 레퍼런스가 실제 자식 객체를 가리킨다면,
+    // 메서드르 찾을 때 자식 클래스의 오버라이딩 메서드를 먼저 찾는다.
+    // 따라서 obj5의 print()는 실제 obj5가 가리키는 A4의 print()를 호출한다.
+    System.out.println("--------------------------------");
   }
 }
