@@ -1,6 +1,5 @@
 package bitcamp.myapp.handler;
 
-import java.sql.Date;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.Board;
 import bitcamp.util.Prompt;
@@ -17,11 +16,9 @@ public class BoardHandler {
 
   private void inputBoard() {
     Board b = new Board();
-    b.setNo(Prompt.inputInt("번호? "));
     b.setTitle(Prompt.inputString("제목? "));
     b.setContent(Prompt.inputString("내용? "));
     b.setPassword(Prompt.inputString("암호? "));
-    b.setCreatedDate(new Date(System.currentTimeMillis()).toString());
 
     this.boardDao.insert(b);
   }
@@ -131,6 +128,7 @@ public class BoardHandler {
   }
 
   public void service() {
+    this.service();
     while (true) {
       System.out.printf("[%s]\n", this.title);
       System.out.println("1. 등록");

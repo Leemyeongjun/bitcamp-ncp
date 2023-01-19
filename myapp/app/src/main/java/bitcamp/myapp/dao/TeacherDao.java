@@ -9,16 +9,14 @@ public class TeacherDao extends ObjectDao {
 
   public Teacher findByNo(int no) {
     Teacher t = new Teacher();
-
     t.setNo(no);
-
     return (Teacher) this.get(this.indexOf(t));
   }
 
   @Override
   protected int indexOf(Object obj) {
     for (int i = 0; i < this.size(); i++) {
-      if (((Teacher)this.objects[i]).getNo() == ((Teacher)obj).getNo()) {
+      if (((Teacher) this.objects[i]).getNo() == ((Teacher) obj).getNo()) {
         return i;
       }
     }
