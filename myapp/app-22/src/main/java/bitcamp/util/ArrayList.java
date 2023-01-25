@@ -31,7 +31,7 @@ public class ArrayList implements List {
 
   @Override
   public Object set(int index, Object object) {
-    Object old = this.objects[index];
+    Object old  = this.objects[index];
     this.objects[index] = object;
     return old;
   }

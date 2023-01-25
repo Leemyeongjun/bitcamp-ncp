@@ -14,8 +14,7 @@ public class BoardDao {
   public BoardDao(List list) {
     // List 규칙에 따라서 만든 객체를 외부에서 주입받는다.
     // 이렇게 하면 이 클래스는 ArrayList 또는 LinkedList와 같은
-    // 특정 클래스와의 관계가 없어진다.
-
+    // 특정 클래스와 관계가 없어진다.
     this.list = list;
   }
 
