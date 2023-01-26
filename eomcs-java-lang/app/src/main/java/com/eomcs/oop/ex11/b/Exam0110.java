@@ -15,6 +15,6 @@ public class Exam0110 {
 
     // 인스턴스 생성
     obj = new A.X();
-  }
 
+  }
 }
