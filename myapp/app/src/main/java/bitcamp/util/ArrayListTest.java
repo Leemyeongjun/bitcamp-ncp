@@ -41,7 +41,7 @@ public class ArrayListTest {
   }
 
   public static void main(String[] args) {
-    ArrayList list = new ArrayList();
+    ArrayList<Member> list = new ArrayList<Member>();
 
     list.add(new Member(1, "aaa", "1111"));
     list.add(new Member(2, "bbb", "2222"));

@@ -15,7 +15,6 @@ public class Exam0313 {
     // 아규먼트 자리에 lambda 문법을 사용하면 더 편하다!
     testPlayer(() -> System.out.println("실행~~~~"));
   }
-
 }
 
 

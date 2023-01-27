@@ -7,7 +7,7 @@ class D3 {
     final int v1 = 1;
     int v2 = 2;
     int v3 = 3;
-    v3 = 30;
+    //    v3 = 30;
 
     class X {
       void f() {

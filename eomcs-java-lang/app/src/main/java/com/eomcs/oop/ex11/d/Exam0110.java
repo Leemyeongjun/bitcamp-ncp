@@ -32,5 +32,4 @@ public class Exam0110 {
     A outer = new A();
     outer.m1();
   }
-
 }

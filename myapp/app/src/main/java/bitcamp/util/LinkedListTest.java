@@ -41,7 +41,7 @@ public class LinkedListTest {
   }
 
   public static void main(String[] args) {
-    LinkedList list = new LinkedList();
+    LinkedList<Member> list = new LinkedList<Member>();
 
     list.add(new Member(1, "aaa", "1111"));
     list.add(new Member(2, "bbb", "2222"));
@@ -71,7 +71,7 @@ public class LinkedListTest {
 
   }
 
-  static void print(LinkedList list) {
+  static void print(LinkedList<Member> list) {
     System.out.println("------------------------------------------------");
     for (Object obj : list.toArray()) {
       System.out.println(obj);
