@@ -45,4 +45,10 @@ public class Student extends Member {
   public void setLevel(byte level) {
     this.level = level;
   }
+
+  @Override
+  public String toString() {
+    return "Student [postNo=" + postNo + ", basicAddress=" + basicAddress + ", detailAddress="
+        + detailAddress + ", working=" + working + ", gender=" + gender + ", level=" + level + "]";
+  }
 }

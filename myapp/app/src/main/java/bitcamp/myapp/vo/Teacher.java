@@ -38,4 +38,9 @@ public class Teacher extends Member {
     this.wage = wage;
   }
 
+  @Override
+  public String toString() {
+    return "Teacher [email=" + email + ", degree=" + degree + ", school=" + school + ", major="
+        + major + ", wage=" + wage + "]";
+  }
 }

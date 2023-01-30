@@ -63,5 +63,9 @@ public class Board {
     this.viewCount = viewCount;
   }
 
-
+  @Override
+  public String toString() {
+    return "Board [no=" + no + ", title=" + title + ", content=" + content + ", password="
+        + password + ", createdDate=" + createdDate + ", viewCount=" + viewCount + "]";
+  }
 }
