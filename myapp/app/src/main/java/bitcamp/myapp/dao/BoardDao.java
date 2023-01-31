@@ -1,13 +1,13 @@
 package bitcamp.myapp.dao;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.sql.Date;
 import java.util.Iterator;
 import java.util.List;
 import bitcamp.myapp.vo.Board;
-import bitcamp.util.BinaryDecoder;
-import bitcamp.util.BinaryEncoder;
 
 public class BoardDao {
 
@@ -56,22 +56,14 @@ public class BoardDao {
   }
 
   public void save(String filename) {
-    try (
-        // 1) 바이너리 데이터(바이트배열)를 출력할 도구를 준비한다.
-        FileOutputStream out = new FileOutputStream(filename)) {
+    try (BufferedWriter out = new BufferedWriter(new FileWriter(filename, true))) {
 
-      // 2) 게시글 개수를 출력 : 4byte
-      out.write(BinaryEncoder.write(list.size()));
-
-      // 3) 게시글 출력
-      // 목록에서 Board 객체를 꺼내 바이트 배열로 만든 다음 출력한다.
-      for (Board b : list) {
-        out.write(BinaryEncoder.write(b.getNo()));
-        out.write(BinaryEncoder.write(b.getTitle()));
-        out.write(BinaryEncoder.write(b.getContent()));
-        out.write(BinaryEncoder.write(b.getPassword()));
-        out.write(BinaryEncoder.write(b.getViewCount()));
-        out.write(BinaryEncoder.write(b.getCreatedDate()));
+      for (int i = 0; i < list.size(); i++) {
+        Board b = list.get(i);
+        String data = "";
+        data = b.getNo() + "," + b.getTitle() + "," + b.getContent() + "," + b.getPassword()  + "," + b.getViewCount() + "," + b.getCreatedDate();
+        out.write(data);
+        out.newLine();
       }
 
     } catch (Exception e) {
@@ -79,37 +71,31 @@ public class BoardDao {
     }
   }
 
+  @SuppressWarnings("unchecked")
   public void load(String filename) {
-    if (list.size() > 0) { // 중복 로딩 방지!
+    if (list.size() > 0) {
       return;
     }
 
-    try (
-        // 1) 바이너리 데이터를 읽을 도구 준비
-        FileInputStream in = new FileInputStream(filename)) {
+    try (BufferedReader in = new BufferedReader(new FileReader(filename))) {
 
-      // 2) 저장된 게시글 개수를 읽는다: 4byte
-      int size = BinaryDecoder.readInt(in);
+      while (in.readLine() != null) {
+        String line = in.readLine();
+        String[] value = line.split(",");
 
-      // 3) 게시글 개수 만큼 반복해서 데이터를 읽어 Board 객체에 저장한다.
-      for (int i = 0; i < size; i++) {
-        // 4) 바이너리 데이터를 저장한 순서대로 읽어서 Board 객체에 담는다.
         Board b = new Board();
-        b.setNo(BinaryDecoder.readInt(in));
-        b.setTitle(BinaryDecoder.readString(in));
-        b.setContent(BinaryDecoder.readString(in));
-        b.setPassword(BinaryDecoder.readString(in));
-        b.setViewCount(BinaryDecoder.readInt(in));
-        b.setCreatedDate(BinaryDecoder.readString(in));
 
-        // 5) Board 객체를 목록에 추가한다.
+        b.setNo(Integer.parseInt(value[0]));
+        b.setTitle(value[1]);
+        b.setContent(value[2]);
+        b.setPassword(value[3]);
+        b.setViewCount(Integer.parseInt(value[4]));
+        b.setCreatedDate(value[5]);
+
         list.add(b);
       }
 
       if (list.size() > 0) {
-        //        int lastIndex = list.size() - 1;
-        //        Board b = list.get(lastIndex);
-        //        lastNo = b.getNo();
         lastNo = list.get(list.size() - 1).getNo();
       }
 
