@@ -60,9 +60,9 @@ public class BoardDao {
 
       for (int i = 0; i < list.size(); i++) {
         Board b = list.get(i);
-        String data = "";
-        data = b.getNo() + "," + b.getTitle() + "," + b.getContent() + "," + b.getPassword()  + "," + b.getViewCount() + "," + b.getCreatedDate();
-        out.write(data);
+        //        String data = "";
+        //        data = b.getNo() + "," + b.getTitle() + "," + b.getContent() + "," + b.getPassword()  + "," + b.getViewCount() + "," + b.getCreatedDate();
+        out.write(String.format("%d,%s,%s,%s,%d,%s", b.getNo(), b.getTitle(), b.getContent(), b.getPassword(), b.getViewCount(), b.getCreatedDate()));
         out.newLine();
       }
 
