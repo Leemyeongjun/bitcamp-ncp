@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.sql.Date;
 import java.util.Iterator;
 import java.util.List;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import bitcamp.myapp.vo.Board;
 
 public class BoardDao {
@@ -56,22 +58,15 @@ public class BoardDao {
   }
 
   public void save(String filename) {
-    try (BufferedWriter out = new BufferedWriter(new FileWriter(filename, true))) {
+    try (BufferedWriter out = new BufferedWriter(new FileWriter(filename))) {
 
-      for (int i = 0; i < list.size(); i++) {
-        Board b = list.get(i);
-        //        String data = "";
-        //        data = b.getNo() + "," + b.getTitle() + "," + b.getContent() + "," + b.getPassword()  + "," + b.getViewCount() + "," + b.getCreatedDate();
-        out.write(String.format("%d,%s,%s,%s,%d,%s", b.getNo(), b.getTitle(), b.getContent(), b.getPassword(), b.getViewCount(), b.getCreatedDate()));
-        out.newLine();
-      }
+      out.write(new Gson().toJson(list));
 
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
-  @SuppressWarnings("unchecked")
   public void load(String filename) {
     if (list.size() > 0) {
       return;
@@ -79,21 +74,11 @@ public class BoardDao {
 
     try (BufferedReader in = new BufferedReader(new FileReader(filename))) {
 
-      while (in.readLine() != null) {
-        String line = in.readLine();
-        String[] value = line.split(",");
+      // 1) JSON 데이터를 어떤 타입의 객체로 변환할 것인지 그 타입 정보를 준비한다.
+      TypeToken<List<Board>> collectionType = new TypeToken<>() {};
 
-        Board b = new Board();
-
-        b.setNo(Integer.parseInt(value[0]));
-        b.setTitle(value[1]);
-        b.setContent(value[2]);
-        b.setPassword(value[3]);
-        b.setViewCount(Integer.parseInt(value[4]));
-        b.setCreatedDate(value[5]);
-
-        list.add(b);
-      }
+      // 2) 입력 스트림에서 JSON 데이터를 읽고, 지정한 타입의 객체를 변환하여 리턴한다.
+      list = new Gson().fromJson(in, collectionType);
 
       if (list.size() > 0) {
         lastNo = list.get(list.size() - 1).getNo();
