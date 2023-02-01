@@ -19,7 +19,6 @@ public class CalcServer {
     PrintStream out = new PrintStream(socket.getOutputStream());
 
     while (true) {
-      // 클라이언트가 보낸 문자열을 한 줄 읽을 때까지 리턴하지 않는다.
       String message = in.nextLine();
       System.out.println(message);
 
@@ -32,12 +31,14 @@ public class CalcServer {
       String action = values[1];
       int b =Integer.parseInt(values[2]);
       int result = 0;
+      String m = "지원하지 않는 부호 입니다!";
 
       switch (action) {
         case "+": result = a + b; break;
         case "-": result = a - b; break;
         case "*": result = a * b; break;
         case "/": result = a / b; break;
+        default: out.println(m);
       }
 
       out.println(result);
