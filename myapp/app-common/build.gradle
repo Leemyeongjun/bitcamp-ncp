@@ -1,5 +1,5 @@
 plugins {
-    id 'application'
+    id 'java-library'
     id 'eclipse'
 }
 
@@ -15,7 +15,7 @@ eclipse {
 
     // => eclipse 프로젝트 이름 설정하기
     project {
-        name = "myapp"
+        name = "myapp-common"
     }
 
     // => eclipse IDE 설정하기
@@ -35,8 +35,4 @@ dependencies {
     
     implementation 'com.google.guava:guava:31.1-jre'
     testImplementation 'junit:junit:4.13.2'
-}
-
-application {
-    mainClass = 'bitcamp.myapp.App'
 }

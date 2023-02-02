@@ -16,7 +16,7 @@ public class CalcClient {
     Scanner in = new Scanner(socket.getInputStream());
 
     while (true) {
-      System.out.print("입력> ");
+      System.out.print("입력> (ex) 10 + 44 \n");
       String message = keyScan.nextLine();
       out.println(message);
 
@@ -25,7 +25,7 @@ public class CalcClient {
       }
 
       String response = in.nextLine();
-      System.out.printf("응답: %s\n", response);
+      System.out.printf("결과: %s\n", response);
     }
 
     out.close();
