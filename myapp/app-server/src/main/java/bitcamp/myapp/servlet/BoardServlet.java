@@ -15,7 +15,6 @@ public class BoardServlet {
   }
 
   private void onInsert(DataInputStream in, DataOutputStream out) throws Exception {
-    // 클라이언트가 보낸 JSON 데이터를 읽어서 Board 객체로 만든다.
     Board b = new Gson().fromJson(in.readUTF(), Board.class);
     this.boardDao.insert(b);
     out.writeUTF("200");
@@ -35,6 +34,9 @@ public class BoardServlet {
       out.writeUTF("400");
       return;
     }
+
+    //    Thread.sleep(10000);
+
     out.writeUTF("200");
     out.writeUTF(new Gson().toJson(b));
   }
@@ -68,7 +70,6 @@ public class BoardServlet {
 
   public void service(DataInputStream in, DataOutputStream out) throws Exception {
     try {
-      // 클라이언트가 요구하는 액션을 읽는다.
       String action = in.readUTF();
 
       switch (action) {

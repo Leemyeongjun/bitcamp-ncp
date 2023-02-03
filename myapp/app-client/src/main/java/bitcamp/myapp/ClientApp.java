@@ -13,6 +13,7 @@ public class ClientApp {
 
   public static void main(String[] args) {
     new ClientApp().execute("localhost", 8888);
+    //    new ClientApp().execute("192.168.0.31", 8888);
   }
 
   void execute(String ip, int port) {

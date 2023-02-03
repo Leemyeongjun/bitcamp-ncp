@@ -42,7 +42,14 @@ public class ServerApp {
       studentDao.load("student.json");
 
       while (true) {
-        processRequest(serverSocket.accept());
+        Socket socket = serverSocket.accept();
+        // 스레드를 실행시킨다.
+        new Thread() {
+          @Override
+          public void run() {
+            processRequest(socket);
+          };
+        }.start();
       }
     } catch (Exception e) {
       System.out.println("서버 오류 발생!");
