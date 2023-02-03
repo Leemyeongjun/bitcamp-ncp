@@ -57,7 +57,9 @@ public class ClientApp {
             case 3:
               boardHandler.service();
               break;
-            case 9: break loop; // loop 라벨이 붙은 while 문을 나간다.
+            case 9:
+              out.writeUTF("quit");
+              break loop;
             default:
               System.out.println("잘못된 메뉴 번호 입니다.");
           }

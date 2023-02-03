@@ -38,17 +38,6 @@ public class TeacherServlet {
     out.writeUTF(new Gson().toJson(t));
   }
 
-  private static String getDegreeText(int degree) {
-    switch (degree) {
-      case 1: return "고졸";
-      case 2: return "전문학사";
-      case 3: return "학사";
-      case 4: return "석사";
-      case 5: return "박사";
-      default: return "기타";
-    }
-  }
-
   private void onUpdate(DataInputStream in, DataOutputStream out) throws Exception {
     Teacher teacher = new Gson().fromJson(in.readUTF(), Teacher.class);
 

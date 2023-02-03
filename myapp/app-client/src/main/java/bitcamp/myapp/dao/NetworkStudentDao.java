@@ -5,8 +5,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.sql.Date;
-import java.util.Iterator;
 import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -26,43 +24,28 @@ public class NetworkStudentDao implements StudentDao {
 
   @Override
   public void insert(Student s) {
-    s.setNo(++lastNo);
-    s.setCreatedDate(new Date(System.currentTimeMillis()).toString());
-    list.add(s);
+    fetch("student", "insert", s);
   }
 
   @Override
   public Student[] findAll() {
-    Student[] students = new Student[list.size()];
-    Iterator<Student> i = list.iterator();
-    int index = 0;
-    while (i.hasNext()) {
-      students[index++] = i.next();
-    }
-    return students;
+    return new Gson().fromJson(fetch("student", "findAll"), Student[].class);
   }
 
   @Override
   public Student findByNo(int no) {
-    Student s = new Student();
-    s.setNo(no);
-
-    int index = list.indexOf(s);
-    if (index == -1) {
-      return null;
-    }
-    return list.get(index);
+    return new Gson().fromJson(fetch("student", "findByNo", no), Student.class);
   }
 
   @Override
   public void update(Student s) {
-    int index = list.indexOf(s);
-    list.set(index, s);
+    fetch("student", "update", s);
   }
 
   @Override
   public boolean delete(Student s) {
-    return list.remove(s);
+    fetch("student", "delete", s);
+    return true;
   }
 
   public void save(String filename) {

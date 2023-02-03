@@ -34,7 +34,7 @@ public class NetworkBoardDao implements BoardDao {
 
   @Override
   public Board findByNo(int no) {
-    return new Gson().fromJson(fetch("board", "findByNo"), Board.class);
+    return new Gson().fromJson(fetch("board", "findByNo", no), Board.class);
   }
 
   @Override

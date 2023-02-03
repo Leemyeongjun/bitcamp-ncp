@@ -38,16 +38,6 @@ public class StudentServlet {
     out.writeUTF(new Gson().toJson(s));
   }
 
-  // 인스턴스 멤버(필드나 메서드)를 사용하지 않기 때문에
-  // 그냥 스태틱 메서드로 두어라!
-  private static String getLevelText(int level) {
-    switch (level) {
-      case 0: return "비전공자";
-      case 1: return "준전공자";
-      default: return "전공자";
-    }
-  }
-
   private void onUpdate(DataInputStream in, DataOutputStream out) throws Exception {
     Student student = new Gson().fromJson(in.readUTF(), Student.class);
 
