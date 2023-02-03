@@ -43,7 +43,12 @@ public class ServerApp {
 
       while (true) {
         Socket socket = serverSocket.accept();
-        new Thread(new RequestProcessor(socket)).start();
+        new Thread(new Runnable() {
+          @Override
+          public void run() {
+            processRequest(socket);
+          }
+        }).start();
       }
     } catch (Exception e) {
       System.out.println("서버 오류 발생!");
@@ -77,19 +82,6 @@ public class ServerApp {
       }
     } catch (Exception e) {
       System.out.println("실행 오류!");
-    }
-  }
-
-  class RequestProcessor implements Runnable {
-    Socket socket;
-
-    public RequestProcessor(Socket socket) {
-      this.socket = socket;
-    }
-
-    @Override
-    public void run() {
-      ServerApp.this.processRequest(socket);
     }
   }
 
