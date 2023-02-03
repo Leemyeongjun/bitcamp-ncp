@@ -43,12 +43,7 @@ public class ServerApp {
 
       while (true) {
         Socket socket = serverSocket.accept();
-        new Thread(new Runnable() {
-          @Override
-          public void run() {
-            processRequest(socket);
-          }
-        }).start();
+        new Thread(() -> processRequest(socket)).start();
       }
     } catch (Exception e) {
       System.out.println("서버 오류 발생!");
