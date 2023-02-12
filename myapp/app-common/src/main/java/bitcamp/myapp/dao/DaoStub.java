@@ -15,7 +15,8 @@ public class DaoStub {
     this.port = port;
   }
 
-  public String fetch(String dataName, String action, Object... data) throws DaoException {
+  public String fetch(String dataName, String action, Object... data)
+      throws DaoException {
     try (Socket socket = new Socket(ip, port);
         DataOutputStream out = new DataOutputStream(socket.getOutputStream());
         DataInputStream in = new DataInputStream(socket.getInputStream())) {
