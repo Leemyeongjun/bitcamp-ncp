@@ -110,12 +110,10 @@ public class ServerApp {
             studentHandler.service(streamTool);
             break;
           case 2:
-            //            teacherHandler.service();
-            streamTool.println("2번 선택!").send();
+            teacherHandler.service(streamTool);
             break;
           case 3:
-            //            boardHandler.service();
-            streamTool.println("3번 선택!").send();
+            boardHandler.service(streamTool);
             break;
           case 4:
             helloHandler.service(streamTool);

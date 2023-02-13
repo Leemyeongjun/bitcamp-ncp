@@ -6,6 +6,8 @@ public interface BoardDao {
   void insert(Board board);
   Board[] findAll();
   Board findByNo(int no);
+  void increaseViewCount(int no);
+  Board[] findByKeyword(String keyword);
   void update(Board b);
   boolean delete(Board b);
 }

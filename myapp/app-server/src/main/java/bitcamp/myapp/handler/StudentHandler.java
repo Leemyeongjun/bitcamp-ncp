@@ -47,6 +47,11 @@ public class StudentHandler {
 
     Student m = this.memberDao.findByNo(memberNo);
 
+    if (m == null) {
+      streamTool.println("해당 번호의 학생이 없습니다.").send();
+      return;
+    }
+
     streamTool
     .printf("    이름: %s\n", m.getName())
     .printf("    전화: %s\n", m.getTel())
@@ -58,6 +63,7 @@ public class StudentHandler {
     .printf("    전공: %s\n", getLevelText(m.getLevel()))
     .printf("  등록일: %s\n", m.getCreatedDate())
     .send();
+
   }
 
   // 인스턴스 멤버(필드나 메서드)를 사용하지 않기 때문에

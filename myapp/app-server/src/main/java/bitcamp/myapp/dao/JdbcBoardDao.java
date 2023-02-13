@@ -81,6 +81,54 @@ public class JdbcBoardDao implements BoardDao {
   }
 
   @Override
+  public void increaseViewCount(int no) {
+    try (Statement stmt = con.createStatement()) {
+
+      String sql = String.format(
+          "update app_board set"
+              + " view_cnt = view_cnt + 1"
+              + " where board_id=%d",
+              no);
+
+      stmt.executeUpdate(sql);
+
+    } catch (Exception e) {
+      throw new DaoException(e);
+    }
+  }
+
+  @Override
+  public Board[] findByKeyword(String keyword) {
+    try (Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(
+            "select board_id, title, created_date, view_cnt"
+                + " from app_board"
+                + " where title like('%" + keyword + "%')"
+                + " or content like('%" + keyword + "%')"
+                + " order by board_id desc")) {
+
+      ArrayList<Board> list = new ArrayList<>();
+      while (rs.next()) {
+        Board b = new Board();
+        b.setNo(rs.getInt("board_id"));
+        b.setTitle(rs.getString("title"));
+        b.setCreatedDate(rs.getString("created_date"));
+        b.setViewCount(rs.getInt("view_cnt"));
+
+        list.add(b);
+      }
+
+      Board[] boards = new Board[list.size()];
+      list.toArray(boards);
+
+      return boards;
+
+    } catch (Exception e) {
+      throw new DaoException(e);
+    }
+  }
+
+  @Override
   public void update(Board b) {
     try (Statement stmt = con.createStatement()) {
 
