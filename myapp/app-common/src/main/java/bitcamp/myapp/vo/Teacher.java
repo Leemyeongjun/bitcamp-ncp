@@ -8,7 +8,6 @@ public class Teacher extends Member implements java.io.Serializable {
   private String major;
   private int wage;
 
-
   @Override
   public String toString() {
     return "Teacher [degree=" + degree + ", school=" + school + ", major=" + major + ", wage="
