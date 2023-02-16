@@ -5,17 +5,17 @@
 <mapper namespace="StudentDao">
 
   <resultMap type="student" id="studentMap">
-    <id column="member_id" property="no"></id>
-    <result column="name" property="name"></result>
-    <result column="email" property="email"></result>
-    <result column="tel" property="tel"></result>
-    <result column="created_date" property="createdDate"></result>
-    <result column="pst_no" property="postNo"></result>
-    <result column="bas_addr" property="basicAddress"></result>
-    <result column="det_addr" property="detailAddress"></result>
-    <result column="work" property="working"></result>
-    <result column="gender" property="gender"></result>
-    <result column="level" property="level"></result>
+    <id column="member_id" property="no"/>
+    <result column="name" property="name"/>
+    <result column="email" property="email"/>
+    <result column="tel" property="tel"/>
+    <result column="created_date" property="createdDate"/>
+    <result column="pst_no" property="postNo"/>
+    <result column="bas_addr" property="basicAddress"/>
+    <result column="det_addr" property="detailAddress"/>
+    <result column="work" property="working"/>
+    <result column="gender" property="gender"/>
+    <result column="level" property="level"/>
   </resultMap>
 
   <insert id="insert" parameterType="student" >

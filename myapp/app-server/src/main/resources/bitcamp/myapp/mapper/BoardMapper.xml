@@ -23,7 +23,7 @@
       board_id, 
       title, 
       created_date, 
-      view_cnt
+      view_cnt 
     from 
       app_board 
     order by 
@@ -55,7 +55,7 @@
       board_id, 
       title, 
       created_date, 
-      view_cnt 
+      view_cnt
     from 
       app_board 
     where 

@@ -60,10 +60,10 @@ public class ServerApp {
     // 7) BitcampSqlSessionFactory객체를 이용하여 트랜잭션을 다루는 객체를 준비한다.
     TransactionManager txManager = new TransactionManager(sqlSessionFactory);
 
-    // 8) DAO 구현체 생성기 준비
+    // DAO 구현체 생성기 준비
     DaoGenerator daoGenerator = new DaoGenerator(sqlSessionFactory);
 
-    // 9) Dao 제너레이터를 이용한 DAO 구현체 생성
+    // DAO 제너레이터를 이용한 DAO 구현체 생성
     BoardDao boardDao = daoGenerator.getObject(BoardDao.class);
     MemberDao memberDao = daoGenerator.getObject(MemberDao.class);
     StudentDao studentDao = daoGenerator.getObject(StudentDao.class);

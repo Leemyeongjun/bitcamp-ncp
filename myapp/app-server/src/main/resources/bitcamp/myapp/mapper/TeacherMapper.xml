@@ -5,17 +5,17 @@
 <mapper namespace="TeacherDao">
 
   <resultMap type="teacher" id="teacherMap">
-    <id column="member_id" property="no"></id>
-    <result column="name" property="name"></result>
-    <result column="email" property="email"></result>
-    <result column="tel" property="tel"></result>
-    <result column="created_date" property="createdDate"></result>
-    <result column="degree" property="degree"></result>
-    <result column="school" property="school"></result>
-    <result column="major" property="major"></result>
-    <result column="wage" property="wage"></result>
+    <id column="member_id" property="no"/>
+    <result column="name" property="name"/>
+    <result column="email" property="email"/>
+    <result column="tel" property="tel"/>
+    <result column="created_date" property="createdDate"/>
+    <result column="degree" property="degree"/>
+    <result column="school" property="school"/>
+    <result column="major" property="major"/>
+    <result column="wage" property="wage"/>
   </resultMap>
-
+  
   <insert id="insert" parameterType="teacher" >
     insert into app_teacher(
       member_id,

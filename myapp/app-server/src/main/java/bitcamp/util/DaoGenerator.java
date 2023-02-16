@@ -24,8 +24,9 @@ public class DaoGenerator implements InvocationHandler {
 
     return (T) Proxy.newProxyInstance(
         getClass().getClassLoader(), // 현재 클래스의 로딩을 담당한 관리자: 즉 클래스 로딩 관리자
-        new Class[] {classInfo}, // 클래스가 구현해야 하는 인터페이스 정보 목록
-        this); // InvocationHandler 객체:
+        new Class[] {classInfo}, // 클래스가 구현해야 할 인터페이스 정보 목록
+        this // InvocationHandler 객체
+        );
   }
 
   // 자동 생성된 프록시 객체에 대해 메서드를 호출하면
@@ -66,23 +67,24 @@ public class DaoGenerator implements InvocationHandler {
     //    Board b = new Board();
     //    b.setTitle("테스트1");
     //    b.setContent("테스트내용1");
-    //    b.setPassword("11111");
+    //    b.setPassword("1111");
     //    dao.insert(b);
+
+    //    Board b = new Board();
+    //    b.setNo(13);
+    //    b.setTitle("테스트1xxx");
+    //    b.setContent("테스트내용1xxxx");
+    //    b.setPassword("1111");
+    //    dao.update(b);
+
+    //    dao.delete(13);
 
     //    List<Board> list = dao.findAll();
     //    for (Board b : list) {
     //      System.out.println(b);
     //    }
 
-    //    System.out.println(dao.findByNo(8));
-
-    //    Board b = new Board();
-    //    b.setNo(8);
-    //    b.setTitle("테스트1xx");
-    //    b.setContent("테스트내용1xx");
-    //    b.setPassword("11111");
-    //    dao.update(b);
-
-    //    dao.delete(8);
+    //    System.out.println(dao.findByNo(13));
   }
+
 }
