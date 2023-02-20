@@ -29,7 +29,7 @@
 <body>
 <h1>학생(JSP)</h1>
 
-<div><a href='form'>새 학생</a></div>
+<div><a href='form.jsp'>새 학생</a></div>
 
 <table border='1'>
 <tr>
@@ -42,7 +42,7 @@
 %>
   <tr>
       <td><%=student.getNo()%></td> 
-      <td><a href='view?no=<%=student.getNo()%>'><%=student.getName()%></a></td> 
+      <td><a href='view.jsp?no=<%=student.getNo()%>'><%=student.getName()%></a></td> 
       <td><%=student.getTel()%></td> 
       <td><%=student.isWorking() ? "예" : "아니오"%></td> 
       <td><%=getLevelText(student.getLevel())%></td>
