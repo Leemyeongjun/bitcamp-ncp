@@ -1,9 +1,5 @@
-<%@page import="bitcamp.myapp.vo.Student"%>
-<%@page import="java.util.List"%>
-<%@page import="bitcamp.myapp.dao.StudentDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +7,8 @@
 <title>비트캠프 - NCP 1기</title>
 </head>
 <body>
-<h1>학생</h1>
-<form action='insert.jsp' method='post'>
+<h1>학생(JSP + MVC2)</h1>
+<form action='insert' method='post'>
 <table border='1'>
 <tr>
   <th>이름</th>
@@ -62,13 +58,11 @@
 
 <tr>
   <th>전공</th>
-  <td>
-  <select name='level'>
+  <td><select name='level'>
     <option value='0'>비전공자</option>
     <option value='1'>준전공자</option>
     <option value='2'>전공자</option>
-  </select>
-  </td>
+    </select></td>
 </tr>
 
 </table>
@@ -82,9 +76,10 @@
 
 <script>
 document.querySelector('#btn-cancel').onclick = function() {
-  location.href = 'list.jsp';
+  location.href = 'list';
 }
 </script>
 
 </body>
 </html>
+
