@@ -28,14 +28,14 @@ public class BoardController {
 
   @GetMapping("form")
   public String form() {
-    return "/board/form.jsp";
+    return "board/form";
   }
 
   @PostMapping("insert")
   public String insert(
-      //      Board board,
-      String title,
-      String content,
+      Board board,
+      //      String title,
+      //      String content,
       Part[] files,
       Model model, // ServletRequest 보관소에 저장할 값을 담는 임시 저장소
       // 이 객체에 값을 담아 두면 프론트 컨트롤러(DispatcherServlet)가
@@ -44,9 +44,9 @@ public class BoardController {
     try {
       Member loginUser = (Member) session.getAttribute("loginUser");
 
-      Board board = new Board();
-      board.setTitle(title);
-      board.setContent(content);
+      //      Board board = new Board();
+      //      board.setTitle(title);
+      //      board.setContent(content);
 
       Member writer = new Member();
       writer.setNo(loginUser.getNo());
@@ -75,37 +75,37 @@ public class BoardController {
       e.printStackTrace();
       model.addAttribute("error", "data");
     }
-    return "/board/insert.jsp";
+    return "board/insert";
   }
 
   @GetMapping("list")
   public String list(String keyword, Model model) {
     model.addAttribute("boards", boardService.list(keyword));
-    return "/board/list.jsp";
+    return "board/list";
   }
 
   @GetMapping("view")
   public String view(int no, Model model) {
     model.addAttribute("board", boardService.get(no));
-    return"/board/view.jsp";
+    return"board/view";
   }
 
   @PostMapping("update")
   public String update(
-      //      Board board,
-      int no,
-      String title,
-      String content,
+      Board board,
+      //      int no,
+      //      String title,
+      //      String content,
       Part[] files,
       Model model,
       HttpSession session) {
     try {
       Member loginUser = (Member) session.getAttribute("loginUser");
 
-      Board board = new Board();
-      board.setNo(no);
-      board.setTitle(title);
-      board.setContent(content);
+      //      Board board = new Board();
+      //      board.setNo(no);
+      //      board.setTitle(title);
+      //      board.setContent(content);
 
       Board old = boardService.get(board.getNo());
       if (old.getWriter().getNo() != loginUser.getNo()) {
@@ -137,7 +137,7 @@ public class BoardController {
       model.addAttribute("error", "data");
     }
 
-    return "/board/update.jsp";
+    return "board/update";
   }
 
   @PostMapping("delete")
@@ -155,7 +155,7 @@ public class BoardController {
       e.printStackTrace();
       model.addAttribute("error", "data");
     }
-    return "/board/delete.jsp";
+    return "board/delete";
   }
 
   @GetMapping("filedelete")
