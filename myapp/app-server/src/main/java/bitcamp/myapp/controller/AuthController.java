@@ -3,12 +3,13 @@ package bitcamp.myapp.controller;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import bitcamp.myapp.service.StudentService;
 import bitcamp.myapp.service.TeacherService;
 import bitcamp.myapp.vo.Member;
@@ -16,8 +17,10 @@ import bitcamp.myapp.vo.Member;
 @Controller
 public class AuthController {
 
+  Logger log = LogManager.getLogger(getClass());
+
   {
-    System.out.println("AuthController 생성됨!");
+    log.trace("AuthController 생성됨!");
   }
 
   @Autowired private StudentService studentService;
@@ -35,10 +38,10 @@ public class AuthController {
 
   @RequestMapping("/auth/login")
   public String login(
-      @RequestParam("usertype") String usertype,
-      @RequestParam("email") String email,
-      @RequestParam("password") String password,
-      @RequestParam("saveEmail") String saveEmail,
+      String usertype,
+      String email,
+      String password,
+      String saveEmail,
       HttpServletResponse response,
       HttpSession session,
       Model model) {
