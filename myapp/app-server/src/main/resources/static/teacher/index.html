@@ -3,42 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <title>비트캠프 - NCP 1기</title>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.css"
+    />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <div class="container">
-    <h1>강사</h1>
+      <h1>강사</h1>
 
-    <aside>
-      <div>
-        <button id="btn-new" class="btn btn-primary">새 강사</button>
-      </div>
-      <table id="teacher-table" border="1">
-        <thead>
-          <tr>
-            <th>번호</th>
-            <th>이름</th>
-            <th>전화</th>
-            <th>학위</th>
-            <th>전공</th>
-            <th>시강료</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </aside>
-    
+      <aside>
+        <div>
+          <button id="btn-new" class="btn btn-primary">새 강사</button>
+        </div>
+        <table id="teacher-table" border="1">
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>이름</th>
+              <th>전화</th>
+              <th>학위</th>
+              <th>전공</th>
+              <th>시강료</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </aside>
+
       <!-- Modal -->
-      <div class="modal fade" id="teacherModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div
+        class="modal fade"
+        id="teacherModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+      <form id="teacher-form" action="update" method="post">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                강사
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div class="modal-body">
-              <form id="teacher-form" action="update" method="post">
+              
                 <table border="1">
                   <tr class="edit">
                     <th>번호</th>
@@ -54,7 +71,9 @@
                   </tr>
                   <tr>
                     <th>암호</th>
-                    <td><input id="f-password" type="password" name="password" /></td>
+                    <td>
+                      <input id="f-password" type="password" name="password" />
+                    </td>
                   </tr>
                   <tr>
                     <th>전화</th>
@@ -90,34 +109,55 @@
                     <td><span id="f-createdDate"></span></td>
                   </tr>
                 </table>
-        
-                <div>
-                  
-                </div>
               </form>
             </div>
             <div class="modal-footer">
-              <button id="btn-insert" type="button" class="input btn btn-primary">추가</button>
-              <button id="btn-update" type="button" class="edit btn btn-primary">변경</button>
-              <button id="btn-delete" type="button" class="edit btn btn-primary">삭제</button>
-              <button id="btn-cancel" type="reset" class="edit btn btn-secondary" data-bs-dismiss="modal">취소</button>
+              <button
+                id="btn-insert"
+                type="button"
+                class="input btn btn-primary"
+              >
+                추가
+              </button>
+              <button
+                id="btn-update"
+                type="button"
+                class="edit btn btn-primary"
+              >
+                변경
+              </button>
+              <button
+                id="btn-delete"
+                type="button"
+                class="edit btn btn-primary"
+              >
+                삭제
+              </button>
+              <button
+                id="btn-cancel"
+                type="reset"
+                class="edit btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                취소
+              </button>
             </div>
           </div>
         </div>
+      </form>
       </div>
-
     </div>
 
     <script id="tr-template" type="text/x-handlebars-template">
       {{#each this}}
-      <tr data-no="{{no}}" onclick="getTeacher(event)">
-        <td>{{no}}</td> 
-        <td>{{name}}</td> 
-        <td>{{tel}}</td>
-        <td>{{#degreeLabel}}{{degree}}{{/degreeLabel}}</td> 
-        <td>{{major}}</td>
-        <td>{{wage}}</td>
-     </tr>
+        <tr data-no="{{no}}" onclick="getTeacher(event)">
+          <td>{{no}}</td>
+          <td>{{name}}</td>
+          <td>{{tel}}</td>
+          <td>{{#degreeLabel}}{{degree}}{{/degreeLabel}}</td>
+          <td>{{major}}</td>
+          <td>{{wage}}</td>
+        </tr>
       {{/each}}
     </script>
 
