@@ -11,9 +11,7 @@ package com.eomcs.oop.ex02.test;
 //8) 생성자 도입: 인스턴스를 생성할 때 값을 초기화시키는 특별한 메서드
 //
 public class ScoreTest0 {
-
   public static void main(String[] args) {
-
     String name;
     int kor;
     int eng;
@@ -33,7 +31,7 @@ public class ScoreTest0 {
     name = "임꺽정";
     kor = 90;
     eng = 80;
-    math = 75;
+    math = 70;
     sum = kor + eng + math;
     aver = (float) sum / 3;
 
@@ -49,4 +47,3 @@ public class ScoreTest0 {
     System.out.printf("%s: %d, %d, %d, %d, %.1f\n", name, kor, eng, math, sum, aver);
   }
 }
-

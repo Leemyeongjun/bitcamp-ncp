@@ -5,9 +5,11 @@ public class A /*extends Object*/ {
 
   // A 클래스는 기본 생성자가 없다.
   // => int 값을 받는 생성자만 있다.
-  //
+  // 
   A(int value) {
     this.v1 = value;
     System.out.println("A(int) 생성자!");
   }
 }
+
+

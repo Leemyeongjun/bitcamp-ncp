@@ -14,6 +14,7 @@ public class Exam0320 {
   public static void main(String[] args) {
 
     // 익명 클래스
+
     test(new Calculator() {
       @Override
       public int compute(int a, int b) {

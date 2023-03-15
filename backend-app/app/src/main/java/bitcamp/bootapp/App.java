@@ -12,17 +12,12 @@ public class App {
   public static void main(String[] args) {
     SpringApplication.run(App.class, args);
   }
-
+  // 스프링부트가 클래스를 자동생성 하지 않는다면
+  // 개발자가 직접 객체를 생성해 리턴해야한다
+  // 단 스프링 부트가 아래 메서드를 호출하게 하려면 @Bean을 사용
   @Bean
   public WebMvcConfigurer corsConfigurer() {
-    System.out.println("WebMvc 구현체를 생성함");
-
     return new WebMvcConfigurer() {
-
-      {
-        System.out.println("return 문 + 익명 클래스 WebConfig 객체 생성됨!");
-      }
-
       @Override
       public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
@@ -32,3 +27,10 @@ public class App {
     };
   }
 }
+
+
+
+
+
+
+

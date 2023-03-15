@@ -20,6 +20,7 @@ public class Exam0120 {
     // m3() 또한 메서드 선언부에 해당 예외를 기술해야 한다.
     // => "m3() 안에서 Exception 예외가 발생합니다" 라고!
     m4();
+
   }
 
   static void m4() throws Exception {

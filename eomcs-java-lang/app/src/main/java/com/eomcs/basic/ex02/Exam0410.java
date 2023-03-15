@@ -17,11 +17,9 @@ public class Exam0410 {
     System.out.println(c1.get(2) + 1); // month
     System.out.println(c1.get(5)); // date
     System.out.println(c1.get(10)); // hour
-    System.out.println(c1.get(9)); // ap / pm
+    System.out.println(c1.get(9)); // am/pm
     System.out.println(c1.get(12)); // minute
-    System.out.println(c1.get(13)); // seconds
-
-    System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+    System.out.println(c1.get(13)); //seconds
 
     System.out.println(c1.get(Calendar.YEAR));
     System.out.println(c1.get(Calendar.MONTH) + 1);
@@ -30,6 +28,7 @@ public class Exam0410 {
     System.out.println(c1.get(Calendar.AM_PM));
     System.out.println(c1.get(Calendar.MINUTE));
     System.out.println(c1.get(Calendar.SECOND));
+
   }
 }
 

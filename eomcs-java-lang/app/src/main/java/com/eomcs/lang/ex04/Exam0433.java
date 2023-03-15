@@ -17,9 +17,5 @@ public class Exam0433 {
     //  println()은 int 변수의 값은 10진수로 출력한다.
     int i = 'A';
     System.out.println(i);
-
-    System.out.println('똥');
-    System.out.println((char)('똥' - 1));
-    System.out.println((char)('똥' + 1));
   }
 }

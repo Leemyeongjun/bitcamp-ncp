@@ -39,29 +39,13 @@ public class Exam0440 {
       }
     });
 
-    class Y implements A {
-      @Override
-      public void print() {
-        System.out.println("하하하");
-      }
-    }
-    m1(new Y());
-
-    A obj2 = new A() {
-      @Override
-      public void print() {
-        System.out.println("익명 하하하");
-      }
-    };
-    m1(obj2);
 
     m1(new A() {
       @Override
       public void print() {
-        System.out.println("하하하2");
+        System.out.println("하하하");
       }
     });
 
-    m1(() -> System.out.println("하하하"));
   }
 }

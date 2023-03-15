@@ -4,13 +4,7 @@ package com.eomcs.oop.ex11.c;
 class X {} // Top Level Class
 
 class A {
-  static void m1() {
-    // static 메서드는 A의 인스턴스를 저장하는 this라는 변수가 없다.
-  }
 
-  void m2() {
-    // non-static 메서드는 A의 인스턴스를 저장할 this라는 변수가 있다.
-  }
 
   class X { // inner class
     // 컴파일러는 inner 클래스를 컴파일 할 때 다음과 같이
@@ -24,6 +18,11 @@ class A {
   }
 
   static class Y {}
+
+  public void m2(int i) {
+
+  }
+
 }
 
 public class Exam0110 {
@@ -37,8 +36,13 @@ public class Exam0110 {
     //    obj = new A.X(); // 컴파일 오류! 바깥 클래스의 인스턴스 주소 없이 생성 불가!
     obj2 = new A.Y();
 
+
+
     //1) 바깥 클래스의 인스턴스 준비
     A  outer = new A();
+
+    // non-static 메서드를 호출하려면 인스턴스 주소가 필요하듯
+    outer.m2(0);
 
     //2) 바깥 클래스의 인스턴스 주소를 사용하여 inner class의 인스턴스 생성
     obj = outer.new X();

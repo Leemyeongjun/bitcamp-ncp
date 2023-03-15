@@ -1,14 +1,12 @@
-// anonymous class : 클래스를 상속 받은 익명 클래스 정의
+// anonymous class : 클래스를 상속 받은 익명 클래스 정의 - 생성자
 package com.eomcs.oop.ex11.e;
 
 public class Exam0122 {
 
-  // default constructor 가 없는 클래스
+  // default constructor가 없는 클래스
   static class A {
-
     String message;
     int value;
-
     A(String message) {
       this.message = message;
     }
@@ -19,22 +17,21 @@ public class Exam0122 {
     }
 
     void print() {
-      System.out.println("A의 print(): " + this.message);
+      System.out.printf("A의 print() : %s, %d\n", this.message,this.value);
     }
   }
 
   public static void main(final String[] args) {
-    // 3) 익명 클래스의 생성자
-    // => 익명 클래스의 객체를 만들 때 호출하는 생성자는
-    //    수퍼 클래스에 존재하는 생서자여야 한다.
+    // 2) 익명클래스 의 생성자
+    //  => 익명클래스의 객체를 만들때 호출하는 생성자는
+    //      수퍼 클래스에 존재하는 생성자여야 한다
     //
     // 문법:
-    // => 수퍼클래스 레퍼런스 = new 수퍼클래스(파라미터, ...) {};
-    //    => 컴파일러는 호출하는 수퍼 클래스의 생성자와 동일한 생성자를
-    //       익명 클래스에 추가한다.
+    // => 수퍼클래스 레퍼런스 = new 수퍼클래스(파라미터) {};
+    //    - 컴파일러는 호출하는 수퍼 클래스의 생성자와 동일한
+    //      파라미터를 갖는 생성자를 익명 클래스에 추가한다
     //
-    A obj2 = new A("오호라") {
-      // bytecode를 확인해 보라!
+    A obj2 = new A("오호라",100) {
     };
     obj2.print();
   }

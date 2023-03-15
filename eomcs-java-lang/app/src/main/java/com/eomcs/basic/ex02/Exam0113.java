@@ -12,7 +12,7 @@ public class Exam0113 {
     // - 없으면 상수풀에 String 객체를 생성한 후 그 주소를 리턴한다.
     String s2 = s1.intern();
 
-    String s3 = "Hello";  // 해당 문자열을 가진 String 객체를 String Pool에서 찾는다.
+    String s3 = "Hello";  // 해당 문자열을 가진 String 객체를 String Pool에서 찾는다. 
     // 있으면 그 객체를 리턴한다. 없으면 새 객체를 만들고 리턴한다.
 
     System.out.println(s1 == s2);
