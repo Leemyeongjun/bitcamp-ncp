@@ -10,18 +10,31 @@
     <div id="root"></div>
 
     <!-- 리액트 자바스크립트 CDN 라이브러리-->
-    <script
-      src="https://unpkg.com/react@18/umd/react.production.min.js"
-      crossorigin>
-    </script>
-    <script
-      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
-      crossorigin>
-    </script>
-
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <!-- 리액트로 UI를 생성하는 자바스크립트 코드 -->
     <script src="test.js"></script>
+
+    <script>
+      function Board() {
+        this.title = "제목111";
+        this.print = () => {
+          console.log(this.title);
+        }
+      }
+
+      let board = new Board();
+      board.print();
+
+      let board2 = {
+        title: "제목222",
+        m: board.print
+      };
+
+      board2.m();
+
+    </script>
   </body>
 </html>
