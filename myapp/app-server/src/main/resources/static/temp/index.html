@@ -16,25 +16,5 @@
 
     <!-- 리액트로 UI를 생성하는 자바스크립트 코드 -->
     <script src="test.js"></script>
-
-    <script>
-      function Board() {
-        this.title = "제목111";
-        this.print = () => {
-          console.log(this.title);
-        }
-      }
-
-      let board = new Board();
-      board.print();
-
-      let board2 = {
-        title: "제목222",
-        m: board.print
-      };
-
-      board2.m();
-
-    </script>
   </body>
 </html>
