@@ -89,8 +89,8 @@ ALTER TABLE lms_student
 -- 강사
 CREATE TABLE lms_teacher (
   teacher_id INTEGER NOT NULL COMMENT '강사번호', -- 강사번호
-  COL10      INTEGER NOT NULL COMMENT '전임여부', -- 전임여부
-  COL11      INTEGER NOT NULL COMMENT '시강료' -- 시강료
+  fulltime   INTEGER NOT NULL COMMENT '전임여부', -- 전임여부
+  wage       INTEGER NOT NULL COMMENT '시강료' -- 시강료
 )
 COMMENT '강사';
 
@@ -106,7 +106,7 @@ CREATE TABLE lms_manager (
   manager_id    INTEGER     NOT NULL COMMENT '매니저번호', -- 매니저번호
   department_id INTEGER     NOT NULL COMMENT '부서번호', -- 부서번호
   fax           VARCHAR(30) NULL     COMMENT '팩스', -- 팩스
-  postion       VARCHAR(60) NULL     COMMENT '직위' -- 직위
+  position      VARCHAR(60) NULL     COMMENT '직위' -- 직위
 )
 COMMENT '매니저';
 
@@ -149,7 +149,7 @@ CREATE TABLE lms_member (
   tel            VARCHAR(30)  NOT NULL COMMENT '전화', -- 전화
   email          VARCHAR(40)  NOT NULL COMMENT '이메일', -- 이메일
   addr_id        INTEGER      NULL     COMMENT '기본주소번호', -- 기본주소번호
-  deatil_address VARCHAR(255) NULL     COMMENT '상세주소', -- 상세주소
+  detail_address VARCHAR(255) NULL     COMMENT '상세주소', -- 상세주소
   degree_id      INTEGER      NOT NULL COMMENT '학력번호', -- 학력번호
   school         VARCHAR(60)  NULL     COMMENT '학교', -- 학교
   major          VARCHAR(60)  NOT NULL COMMENT '전공' -- 전공
@@ -300,7 +300,7 @@ CREATE TABLE lms_application (
   lecture_id           INTEGER     NOT NULL COMMENT '강의번호', -- 강의번호
   student_id           INTEGER     NOT NULL COMMENT '학생번호', -- 학생번호
   created_dt           DATETIME    NOT NULL DEFAULT now() COMMENT '신청일', -- 신청일
-  application_state_id VARCHAR(10) NULL     COMMENT '상태' -- 상태
+  application_state_id VARCHAR(10) NULL     COMMENT '신청상태번호' -- 신청상태번호
 )
 COMMENT '수강신청';
 
@@ -329,7 +329,7 @@ ALTER TABLE lms_lecture_teacher
 
 -- 신청상태
 CREATE TABLE lms_application_state (
-  application_state_id VARCHAR(10) NOT NULL COMMENT '상태', -- 상태
+  application_state_id VARCHAR(10) NOT NULL COMMENT '신청상태번호', -- 신청상태번호
   status_name          VARCHAR(60) NULL     COMMENT '상태명' -- 상태명
 )
 COMMENT '신청상태';
@@ -338,7 +338,7 @@ COMMENT '신청상태';
 ALTER TABLE lms_application_state
   ADD CONSTRAINT PK_lms_application_state -- 신청상태 기본키
   PRIMARY KEY (
-  application_state_id -- 상태
+  application_state_id -- 신청상태번호
   );
 
 -- 강의
@@ -475,10 +475,10 @@ ALTER TABLE lms_application
 ALTER TABLE lms_application
   ADD CONSTRAINT FK_lms_application_state_TO_lms_application -- 신청상태 -> 수강신청
   FOREIGN KEY (
-  application_state_id -- 상태
+  application_state_id -- 신청상태번호
   )
   REFERENCES lms_application_state ( -- 신청상태
-  application_state_id -- 상태
+  application_state_id -- 신청상태번호
   );
 
 -- 강의배정
