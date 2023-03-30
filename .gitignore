@@ -217,4 +217,11 @@ gradle-app.setting
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,gradle,java,visualstudiocode,eclipse
 
-node_modules
+log/
+*.exe
+node_modules/
+upload/
+temp/
+logs/
+naver.properties/
+html-exam/
