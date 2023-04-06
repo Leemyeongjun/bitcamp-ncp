@@ -97,13 +97,14 @@ public class AuthController {
         );
 
     // 페이스북에서 받은 데이터에서 이메일과 이름을 꺼낸다.
+    @SuppressWarnings("null")
     String email = (String) result.get("email");
     String name = (String) result.get("name");
 
     // 기존 회원 정보 가져오기
-    Student user =studentService.get(email);
+    Student user = studentService.get(email);
     if (user == null) {
-      // 페이스북에서 받은 치소 정보를 가지고 회원 가입을 위한 객체를 준비한다.
+      // 페이스북에서 받은 최소 정보를 가지고 회원 가입을 위한 객체를 준비한다.
       Student s = new Student();
       s.setEmail(email);
       s.setName(name);
@@ -112,16 +113,15 @@ public class AuthController {
       // 회원 가입을 수행한다.
       studentService.add(s);
     }
-
     user = studentService.get(email);
 
     // 세션에 로그인 사용자 정보 보관
     session.setAttribute("loginUser", user);
 
     return new RestResult()
-        .setStatus(RestStatus.SUCCESS)
-        .setData(result);
+        .setStatus(RestStatus.SUCCESS);
   }
+
 }
 
 

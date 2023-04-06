@@ -35,7 +35,6 @@
         })
         .then((result) => {
           if (result.status == "success") {
-        	  console.log(result.data);
             document.querySelector("#username").innerHTML = result.data.name;
             document.querySelector(".logout").classList.remove("logout");
           } else {
